@@ -1,7 +1,7 @@
 #  Installation Guide - iGaming v2.4.2-final
 
 Olá, **Dev**!
- Você acaba de adquirir um script para instalação da WebZOW. Isso significa que você escolheu efetuar a instalação por conta própria, aqui está um **passo-a-passo** de como executar nosso script.
+ Você possui um script para instalação da WebZOW. Isso significa que você escolheu efetuar a instalação por conta própria, aqui está um **passo-a-passo** de como executar nosso script.
 
 > ***Evite o uso não autorizado de scripts WebZOW. 
 > O uso de script pirateado/nulled não está de acordo á suporte da empresa!***
