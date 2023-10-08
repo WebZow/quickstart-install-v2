@@ -62,6 +62,11 @@ sudo add-apt-repository -y ppa:ondrej/php &&
 sudo apt update && sudo apt upgrade && 
 sudo apt install php7.3-common php7.3-zip php7.3-curl php7.3-xml php7.3-xmlrpc php7.3-mysql php7.3-pdo php7.3-gd php7.3-imagick php7.3-ldap php7.3-imap php7.3-mbstring php7.3-intl php7.3-cli php7.3-tidy php7.3-bcmath php7.3-opcache
 ```
+
+```bash
+apt-get -y install curl php7.3 php7.3-mysql  php7.3-fpm php7.3-mbstring php7.3-xml php7.3-curl
+```
+
 > **Neste de baixo, todos os comando juntos de uma só vez!**
 
 ```bash
@@ -142,15 +147,18 @@ sudo service nginx restart
 /run/redis
 ```
 #### Crie um arquivo sem extensão, chamado de
+
 ```
 redis.sock
 ```
+
 ---
 #### Vá até a pasta
 
 ```
 /etc/nginx/sites-available
 ```
+
 #### Faça um backup do arquivo 'default' no seu computador local e então edite ele para.
 > **Observação:**  Edite as variáveis cujo nome seja respectivo ao seu uso.
 > IP_DO_SEU_SERVIDOR -> Digite o IP do seu servidor.
@@ -183,6 +191,19 @@ unzip NOME_DO_ARQUIVO.zip
 ### Agora, edite o arquivo .env de acordo com login do seu banco de dados e URL configurada no nginx.
 
 ---
+### Configurar Redis
+
+Vá a pasta e coloque o arquivo deste repositório no lugar
+
+```
+/etc/redis/redis.conf
+```
+
+```bash
+sudo service redis start
+```
+
+---
 #### Ligar o Servidor & BOT
 **Vá até a pasta**
 
@@ -199,6 +220,14 @@ pm2 start app.js
 
 ![image](https://github.com/WebZow/quickstart-install-v2/assets/6683056/c32a5b10-4f20-4536-8cf4-5f66133a10ce)
 
+### Comandos PM2 caso de erro
+
+```base
+pm2 log app.js
+pm2 stop app.js
+pm2 restart app.js
+pm2 flsush
+```
 
 ## WebZOW - Zero Obstacles on Web
 > ***Contato:*** contato@webzow.com
