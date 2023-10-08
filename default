@@ -1,0 +1,113 @@
+limit_conn_zone $binary_remote_addr zone=perip:10m;
+limit_conn_zone $server_name zone=perserver:10m;
+
+server {
+	limit_conn perip 10;
+        limit_conn perserver 100;
+	fastcgi_read_timeout 300;
+	client_max_body_size 64m;
+    # Log files for Debugging
+    access_log /var/log/nginx/laravel-access.log;
+    error_log /var/log/nginx/laravel-error.log;
+
+    # Webroot Directory for Laravel project
+    root /var/www/html;
+    index index.php index.html index.htm;
+
+    # Your Domain Name
+    server_name  www.SEU_DOMINIO.com;
+
+    location / {
+         try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    # PHP-FPM Configuration Nginx
+    location ~ \.php$ {
+         try_files $uri =404;
+         fastcgi_split_path_info ^(.+\.php)(/.+)$;
+         fastcgi_pass unix:/run/php/php7.3-fpm.sock;
+         fastcgi_index index.php;
+         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+         include fastcgi_params;
+		fastcgi_read_timeout 300;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/www.SEU_DOMINIO.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/www.SEU_DOMINIO.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
+
+
+}
+server {
+    if ($host = www.SEU_DOMINIO.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = gut.bet) {
+        return 301 https://$host$request_uri;
+    }
+
+    listen 80;
+    listen [::]:80 ipv6only=on;
+    server_name www.SEU_DOMINIO.com;
+    return 404;
+
+
+
+}
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    index index.php index.html index.htm;
+
+    server_name YOUR_SERVER_IP_HERE ;
+
+    location / {
+         try_files $uri $uri/ /index.php?$query_string;
+    }
+
+     # PHP-FPM Configuration Nginx
+    location ~ \.php$ {
+         try_files $uri =404;
+         fastcgi_split_path_info ^(.+\.php)(/.+)$;
+         fastcgi_pass unix:/run/php/php7.3-fpm.sock;
+         fastcgi_index index.php;
+         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+         include fastcgi_params;
+		fastcgi_read_timeout 300;
+    }
+
+}
+
+
+
+server {
+    if ($host = www.SEU_DOMINIO.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    server_name www.SEU_DOMINIO.com;
+    listen 80;
+    return 404; # managed by Certbot
+
+
+}
