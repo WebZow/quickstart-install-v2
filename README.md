@@ -188,6 +188,12 @@ sudo apt-get install unzip
 unzip NOME_DO_ARQUIVO.zip
 ```
 
+#### Adicionar poermissão nas pastas
+```bash
+chmod -R 777 storage
+chmod -R 777 bootstrap
+```
+
 ### Agora, edite o arquivo .env de acordo com login do seu banco de dados e URL configurada no nginx.
 
 ---
@@ -200,7 +206,7 @@ Vá a pasta e coloque o arquivo deste repositório no lugar
 ```
 
 ```bash
-sudo service redis start
+sudo service redis restart
 ```
 
 ---
