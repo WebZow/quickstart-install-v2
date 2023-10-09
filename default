@@ -52,6 +52,16 @@ server {
 
 
 }
+
+server {
+    listen 80;
+    server_name flypig.vip www.SEU_DOMINIO.vip;
+
+    location / {
+        return 301 https://www.SEU_DOMINIO.com$request_uri;
+    }
+}
+
 server {
     if ($host = www.SEU_DOMINIO.com) {
         return 301 https://$host$request_uri;
