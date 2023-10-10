@@ -146,5 +146,8 @@ pm2 flsush
 ```
 
 ## WebZOW - Zero Obstacles on Web
-> ***Contato:*** contato@webzow.com
+> ***Contato:*** contato@webzow.com.
+> 
 > ***Note:*** This quickstart is for scripts V2 of WebZOW, so you need consult documentation guide for more details.
+>
+> Credit for mmatech by tutorial.
