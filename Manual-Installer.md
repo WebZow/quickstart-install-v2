@@ -67,6 +67,13 @@ sudo apt install php7.3-common php7.3-zip php7.3-curl php7.3-xml php7.3-xmlrpc p
 apt-get -y install curl php7.3 php7.3-mysql  php7.3-fpm php7.3-mbstring php7.3-xml php7.3-curl
 ```
 
+> Para PHP 7.4
+
+```bash
+sudo apt install php7.4-common php7.4-zip php7.4-curl php7.4-xml php7.4-xmlrpc php7.4-mysql php7.4-pdo php7.4-gd php7.4-imagick php7.4-ldap php7.4-imap php7.4-mbstring php7.4-intl php7.4-cli php7.4-tidy php7.4-bcmath php7.4-opcache
+apt-get -y install curl php7.4 php7.4-mysql  php7.4-fpm php7.4-mbstring php7.4-xml php7.4-curl
+```
+
 > **Neste de baixo, todos os comando juntos de uma só vez!**
 
 ```bash
