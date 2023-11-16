@@ -133,12 +133,12 @@ create database YOUR_DATABASE_NAME;
 ```bash
 cd ~
 sudo apt-get install -y nodejs
-npm install socket.io@2.0.4 qrcode express fs https http crypto request mysql sha256 mathjs randomstring body-parser nodemailer multer
 
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -  
 sudo apt-get install -y nodejs  
 apt-get update  
 npm i -g pm2
+npm install socket.io@2.0.4 qrcode express fs https http crypto request mysql sha256 mathjs randomstring body-parser nodemailer multer
 
 sudo service nginx restart
 ```
